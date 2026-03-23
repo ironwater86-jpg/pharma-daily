@@ -1,0 +1,36 @@
+name: 매일 뉴스 자동 업데이트
+
+on:
+  schedule:
+    # 매일 오전 6시 KST = 21:00 UTC (전날)
+    - cron: '0 21 * * *'
+  workflow_dispatch:  # 수동 실행 버튼도 활성화
+
+jobs:
+  update-news:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 저장소 체크아웃
+        uses: actions/checkout@v4
+
+      - name: Python 설치
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: 필요한 패키지 설치
+        run: pip install requests
+
+      - name: 뉴스 수집 및 HTML 생성
+        env:
+          NEWS_API_KEY: ${{ secrets.NEWS_API_KEY }}
+        run: python generate.py
+
+      - name: 변경사항 커밋 및 푸시
+        run: |
+          git config user.name "pharma-daily-bot"
+          git config user.email "bot@pharma-daily.com"
+          git add index.html
+          git diff --staged --quiet || git commit -m "뉴스 자동 업데이트 $(date +'%Y-%m-%d %H:%M KST')"
+          git push
