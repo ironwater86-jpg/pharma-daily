@@ -2,16 +2,16 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="theme-color" content="#080d18">
 <title>제약·의료 데일리 브리핑</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#080d18;--bg2:#0f1623;--bg3:#161e2e;--bg4:#1c2639;--border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.13);--text:#f0f4ff;--text2:#8b93a8;--text3:#505a6e;--accent:#00c896;--adim:rgba(0,200,150,0.12);--red:#ff5c6a;--amber:#f5a623;--fn:'Noto Sans KR',sans-serif;--fs:'DM Serif Display',serif;--r:14px;--rs:8px}
+:root{--bg:#080d18;--bg2:#0f1623;--bg3:#161e2e;--bg4:#1c2639;--border:rgba(255,255,255,.07);--border2:rgba(255,255,255,.13);--text:#f0f4ff;--text2:#8b93a8;--text3:#505a6e;--accent:#00c896;--adim:rgba(0,200,150,.12);--fn:"Noto Sans KR",sans-serif;--fs:"DM Serif Display",serif;--r:14px;--rs:8px}
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 html,body{background:var(--bg);color:var(--text);font-family:var(--fn);font-size:15px;line-height:1.6;overflow-x:hidden}
-.hdr{position:sticky;top:0;z-index:100;background:rgba(8,13,24,0.95);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:.5px solid var(--border);padding:13px 18px 11px}
+.hdr{position:sticky;top:0;z-index:100;background:rgba(8,13,24,.95);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:.5px solid var(--border);padding:13px 18px 11px}
 .hdr-in{max-width:680px;margin:0 auto}
 .hrow{display:flex;align-items:center;justify-content:space-between;margin-bottom:5px}
 .brand{display:flex;align-items:center;gap:9px}
@@ -19,7 +19,7 @@ html,body{background:var(--bg);color:var(--text);font-family:var(--fn);font-size
 .bico svg{width:17px;height:17px}
 .bname{font-size:15px;font-weight:600;letter-spacing:-.3px}
 .bname em{font-style:normal;color:var(--accent)}
-.updated{font-size:11px;color:var(--text3);background:var(--bg3);border:.5px solid var(--border2);border-radius:20px;padding:4px 10px;white-space:nowrap}
+.upd{font-size:11px;color:var(--text3);background:var(--bg3);border:.5px solid var(--border2);border-radius:20px;padding:4px 10px;white-space:nowrap}
 .srow{display:flex;align-items:center;gap:6px;margin-top:5px}
 .dot{width:5px;height:5px;border-radius:50%;background:var(--accent);box-shadow:0 0 5px var(--accent);flex-shrink:0}
 .stxt{font-size:11.5px;color:var(--text3)}
@@ -39,176 +39,137 @@ html,body{background:var(--bg);color:var(--text);font-family:var(--fn);font-size
 .sn{font-size:20px;font-weight:700;font-family:var(--fs);color:var(--accent);line-height:1.1;margin-bottom:2px}
 .sl{font-size:10px;color:var(--text3);letter-spacing:.3px}
 .awrap{padding:0 18px 80px;max-width:680px;margin:0 auto}
-.sechead{font-size:10px;font-weight:600;letter-spacing:1.1px;color:var(--text3);text-transform:uppercase;padding:14px 0 7px}
+.sec{font-size:10px;font-weight:600;letter-spacing:1.1px;color:var(--text3);text-transform:uppercase;padding:14px 0 7px}
 .card{background:var(--bg2);border:.5px solid var(--border);border-radius:var(--r);margin-bottom:8px;overflow:hidden}
 .card.hi{border-left:3px solid var(--accent)}
 .card.md{border-left:3px solid var(--bg4)}
-.card-hd{padding:13px 15px 11px;cursor:pointer;-webkit-user-select:none;user-select:none}
+.card-hd{padding:13px 15px 11px;cursor:pointer;user-select:none;-webkit-user-select:none}
 .card-hd:active{background:var(--bg3)}
 .ctop{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:7px;align-items:center}
-.badge{font-size:10px;font-weight:600;padding:2px 8px;border-radius:10px;display:inline-flex;align-items:center}
-.badge.dermatology{background:rgba(255,122,101,.14);color:#ff9a89}
-.badge.clinical{background:rgba(245,166,35,.14);color:#f5c35a}
-.badge.approval{background:rgba(74,158,255,.14);color:#6db3ff}
-.badge.policy{background:rgba(155,127,255,.14);color:#b89fff}
-.badge.pharma{background:rgba(0,200,150,.14);color:#00c896}
-.badge.probiotics{background:rgba(0,200,150,.08);color:#4cd9b0;border:.5px solid rgba(0,200,150,.2)}
-.badge.pediatrics{background:rgba(255,92,106,.12);color:#ff8a96}
-.badge.chronic{background:rgba(245,166,35,.12);color:#e8a020}
-.badge.rifaximin{background:rgba(74,158,255,.1);color:#7ab8ff;border:.5px solid rgba(74,158,255,.2)}
-.badge.general{background:rgba(139,147,168,.12);color:#8b93a8}
-.badge.imp{background:var(--adim);color:var(--accent)}
-.badge.en{background:rgba(139,147,168,.1);color:var(--text3);font-size:9px}
-.ctitle{font-size:14px;font-weight:500;line-height:1.5;color:var(--text)}
+.bdg{font-size:10px;font-weight:600;padding:2px 8px;border-radius:10px;display:inline-flex;align-items:center}
+.bdg.dermatology{background:rgba(255,122,101,.14);color:#ff9a89}
+.bdg.clinical{background:rgba(245,166,35,.14);color:#f5c35a}
+.bdg.approval{background:rgba(74,158,255,.14);color:#6db3ff}
+.bdg.policy{background:rgba(155,127,255,.14);color:#b89fff}
+.bdg.pharma{background:rgba(0,200,150,.14);color:#00c896}
+.bdg.probiotics{background:rgba(0,200,150,.08);color:#4cd9b0;border:.5px solid rgba(0,200,150,.2)}
+.bdg.pediatrics{background:rgba(255,92,106,.12);color:#ff8a96}
+.bdg.chronic{background:rgba(245,166,35,.12);color:#e8a020}
+.bdg.rifaximin{background:rgba(74,158,255,.1);color:#7ab8ff;border:.5px solid rgba(74,158,255,.2)}
+.bdg.general{background:rgba(139,147,168,.12);color:#8b93a8}
+.bdg.imp{background:var(--adim);color:var(--accent)}
+.bdg.en{background:rgba(139,147,168,.1);color:var(--text3);font-size:9px}
+.ctit{font-size:14px;font-weight:500;line-height:1.5;color:var(--text)}
 .cmeta{display:flex;align-items:center;gap:7px;margin-top:7px;flex-wrap:wrap}
 .csrc{font-size:11px;color:var(--text3)}
-.cdate{font-size:11px;color:var(--text3)}
-/* 펼치기/접기 */
+.cdt{font-size:11px;color:var(--text3)}
 .cbody{display:none;border-top:.5px solid var(--border)}
 .card.open .cbody{display:block}
-.csummary{font-size:13px;color:var(--text2);line-height:1.75;padding:12px 15px 10px}
-.cfooter{padding:0 15px 13px}
+.csum{font-size:13px;color:var(--text2);line-height:1.75;padding:12px 15px 10px}
+.cfoot{padding:0 15px 13px}
 .clink{display:inline-flex;align-items:center;gap:5px;font-size:12px;color:var(--accent);text-decoration:none;background:var(--adim);padding:7px 14px;border-radius:20px;border:.5px solid rgba(0,200,150,.25)}
 .clink:active{opacity:.7}
 .clink svg{width:11px;height:11px;flex-shrink:0}
-.ctoggle{display:flex;align-items:center;justify-content:center;gap:5px;padding:9px;cursor:pointer;border-top:.5px solid var(--border);user-select:none}
-.ctoggle-txt{font-size:11px;color:var(--text3)}
-.carr{font-size:12px;color:var(--text3);transition:transform .2s;display:inline-block}
-.card.open .carr{transform:rotate(180deg)}
-.cmsg{text-align:center;padding:50px 20px}
-.ctit2{font-family:var(--fs);font-size:20px;margin-bottom:7px;color:var(--text)}
-.cdesc{font-size:13px;color:var(--text3);line-height:1.8}
-@media(min-width:480px){.hdr{padding-left:24px;padding-right:24px}.tabs{padding:0 24px}.cats{padding:0 24px}.awrap,.stats{padding-left:24px;padding-right:24px}}
+.ctog{display:flex;align-items:center;justify-content:center;gap:5px;padding:9px;cursor:pointer;border-top:.5px solid var(--border);user-select:none;-webkit-user-select:none}
+.ctog span{font-size:11px;color:var(--text3)}
+.arr{display:inline-block;transition:transform .2s;font-size:12px;color:var(--text3)}
+.card.open .arr{transform:rotate(180deg)}
+.empty{text-align:center;padding:50px 20px}
+.etit{font-family:var(--fs);font-size:20px;margin-bottom:7px;color:var(--text)}
+.edsc{font-size:13px;color:var(--text3);line-height:1.8}
+@media(min-width:480px){.hdr,.tabbar{padding-left:24px;padding-right:24px}.tabs,.cats{padding-left:24px;padding-right:24px}.awrap,.stats{padding-left:24px;padding-right:24px}}
 </style>
 </head>
 <body>
-<header class="hdr">
-  <div class="hdr-in">
-    <div class="hrow">
-      <div class="brand">
-        <div class="bico">
-          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 22h16a2 2 0 002-2V4a2 2 0 00-2-2H8a2 2 0 00-2 2v2"/>
-            <path d="M4 22a2 2 0 010-4h2v4"/>
-            <path d="M9 9h8M9 13h8M9 17h4"/>
-          </svg>
-        </div>
-        <div><div class="bname">제약·의료 <em>데일리</em></div></div>
-      </div>
-      <span class="updated" id="update-time">로딩 중...</span>
+<header class="hdr"><div class="hdr-in">
+  <div class="hrow">
+    <div class="brand">
+      <div class="bico"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 002-2V4a2 2 0 00-2-2H8a2 2 0 00-2 2v2"/><path d="M4 22a2 2 0 010-4h2v4"/><path d="M9 9h8M9 13h8M9 17h4"/></svg></div>
+      <div class="bname">제약·의료 <em>데일리</em></div>
     </div>
-    <div class="srow">
-      <div class="dot"></div>
-      <span class="stxt" id="stxt">기사 불러오는 중...</span>
-    </div>
+    <span class="upd">⚡ 2026.03.24 07:50 업데이트</span>
   </div>
-</header>
+  <div class="srow"><div class="dot"></div><span class="stxt" id="stxt">기사 로딩 중...</span></div>
+</div></header>
 <div class="tabbar"><div class="tabs" id="tabs"></div></div>
-<div class="cwrap">
-  <div class="cats">
-    <button class="cat on" onclick="fCat('all',this)">전체</button>
-    <button class="cat" onclick="fCat('dermatology',this)">탈모·피부과</button>
-    <button class="cat" onclick="fCat('chronic',this)">만성질환</button>
-    <button class="cat" onclick="fCat('probiotics',this)">프로바이오틱스</button>
-    <button class="cat" onclick="fCat('rifaximin',this)">Rifaximin</button>
-    <button class="cat" onclick="fCat('pediatrics',this)">소아과</button>
-    <button class="cat" onclick="fCat('pharma',this)">제약사 동향</button>
-    <button class="cat" onclick="fCat('clinical',this)">임상시험</button>
-    <button class="cat" onclick="fCat('approval',this)">신약 승인</button>
-    <button class="cat" onclick="fCat('policy',this)">정책·규제</button>
-  </div>
-</div>
+<div class="cwrap"><div class="cats">
+  <button class="cat on" onclick="fCat('all',this)">전체</button>
+  <button class="cat" onclick="fCat('dermatology',this)">탈모·피부과</button>
+  <button class="cat" onclick="fCat('chronic',this)">만성질환</button>
+  <button class="cat" onclick="fCat('probiotics',this)">프로바이오틱스</button>
+  <button class="cat" onclick="fCat('rifaximin',this)">Rifaximin</button>
+  <button class="cat" onclick="fCat('pediatrics',this)">소아과</button>
+  <button class="cat" onclick="fCat('pharma',this)">제약사 동향</button>
+  <button class="cat" onclick="fCat('clinical',this)">임상시험</button>
+  <button class="cat" onclick="fCat('approval',this)">신약 승인</button>
+  <button class="cat" onclick="fCat('policy',this)">정책·규제</button>
+</div></div>
 <div class="stats">
-  <div class="sc"><div class="sn" id="st">0</div><div class="sl">전체 기사</div></div>
-  <div class="sc"><div class="sn" id="sh">0</div><div class="sl">주요 기사</div></div>
-  <div class="sc"><div class="sn" id="ss">0</div><div class="sl">카테고리</div></div>
+  <div class="sc"><div class="sn" id="stt">0</div><div class="sl">전체 기사</div></div>
+  <div class="sc"><div class="sn" id="shi">0</div><div class="sl">주요 기사</div></div>
+  <div class="sc"><div class="sn" id="sca">0</div><div class="sl">카테고리</div></div>
 </div>
 <div class="awrap"><div id="alist"></div></div>
 <script>
-const CATS_LBL={dermatology:'탈모·피부과',clinical:'임상시험',approval:'신약 승인',policy:'정책·규제',pharma:'제약사 동향',probiotics:'프로바이오틱스',pediatrics:'소아과',chronic:'만성질환',rifaximin:'Rifaximin',general:'일반'};
-const ARTICLES=[{"title": "건강보험 약품비 27.7조 원 돌파…전년比 5.6% 증가 - medicalworldnews.co.kr", "summary": "건강보험 약품비 27.7조 원 돌파…전년比 5.6% 증가  medicalworldnews.co.kr", "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBmX3Y2UmUxYjJsSDhERlF6aWh5V1VJUzNnbDhYSFVONVktcm1YczNoa05LLXdTMDRqU0hnS2dmMjVoeE9jd0ZQbjF5ZHNfdnlWYTU3dDRkNkdXMFNqYTBpVkFlWm5seGRuUkVB?oc=5", "source": "medicalworldnews.co.kr", "date": "2026-03-23", "time": "22:41", "cat": "policy", "imp": "medium", "lang": "ko"}, {"title": "시어리바 바이오로직스(TOVX), 미국 FDA와의 긍정적인 2상 종료 회의 결과 발표 - 데이터투자", "summary": "시어리바 바이오로직스(TOVX), 미국 FDA와의 긍정적인 2상 종료 회의 결과 발표  데이터투자", "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1ZY3RWblR6WW5xNlZiNHdLWkJld0dranFtRjBrNHFRY3ZmRl9wQjE0UkVmanFCdVlZREVxcHZkZUlZa1NTdTBXMHhRRU5fUEYwbGpjeENBZUVXM1lxMlFqRWpXUHE5Ujh1M3pvc2U2WUpONjg?oc=5", "source": "데이터투자", "date": "2026-03-23", "time": "21:33", "cat": "pharma", "imp": "high", "lang": "ko"}, {"title": "Ozempic and Longevity: What We Know About Long-Term Health - HealthCentral", "summary": "Ozempic and Longevity: What We Know About Long-Term Health  HealthCentral", "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE5fdzN2NnRUcXptTHJHWTdmcVVPbzJnZkFHN0g4cmpKXzRGb0YxZkR0WEdjNTZMZkVqaG1LdXVXZ0szQldETTRjd2s3WU9sejR2eVcyR1AwNlAySTQ1aFNYdGxYd3Q0eEhZNVRmTTBTeElJZDgxTW9v?oc=5", "source": "HealthCentral (EN)", "date": "2026-03-23", "time": "20:39", "cat": "chronic", "imp": "medium", "lang": "en"}, {"title": "인스메드, MAC 폐질환 치료제 3상b 임상시험서 긍정적 결과 발표 - Investing.com 한국어", "summary": "인스메드, MAC 폐질환 치료제 3상b 임상시험서 긍정적 결과 발표  Investing.com 한국어", "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE81aGx2WHlsLUNaYlZZaEFnbjZ4NmUydlJPLXNxUlNKaFVXUTUwV1hOUFRyY0c1TUc5ZU0wYWcyUno3elVKdWNfMHhGUDhzWjd0b3ZxdWdfVEx4QnJZTzBRWTl2ZWQyZkh6Q19vSTZaVWM?oc=5", "source": "Investing.com 한국어", "date": "2026-03-23", "time": "20:07", "cat": "clinical", "imp": "high", "lang": "ko"}, {"title": "기술이전 성과가 좌우...바이오 IPO ‘옥석가리기’ 본격화 - 더퍼블릭", "summary": "기술이전 성과가 좌우...바이오 IPO ‘옥석가리기’ 본격화  더퍼블릭", "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE51aHZfWWRGYUVFUklWdHBVWmVFakpxUVhhNldvQldsclJIeTVpb0g0YTZObDBDU0hUWDdtNENvQkxBdGU2UUFZSFRvRzFmOU1oS3RlSFpvc0JLdW5SdFhXb0FkN3ZtenRvcDQ40gFvQVVfeXFMTV8yckxlbzBhLW95cENYZUNwdTJjRjZuZDBPMDVEeGVUSUtETlhsbXVQYkp1MXJrUVI5VkJueGYtaXJFaUVKQU5KdkFXbUZKcWFJb241UHpLU0dkOHIxUUN6VjMyellxNUFlS0dPTlBN?oc=5", "source": "더퍼블릭", "date": "2026-03-23", "time": "18:33", "cat": "pharma", "imp": "medium", "lang": "ko"}, {"title": "소아조로증 `치료 물질` 수출… 부산 피알지 상업화 가능성 - 부산일보", "summary": "소아조로증 `치료 물질` 수출… 부산 피알지 상업화 가능성  부산일보", "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE5saEpPTkpfUGZ4dmJtSC0xTW9PQmxlT0dsWk5QZHR4aXU1WndvVUpJR2NNLS1FZnI1TW1Hc0l2cVJwV0JIY2xBQ0JUN0Z4UWp5T01XSnRTaFpuSXdOcHNlWVd5djBqSHpYVHAtNUJkQ3ZxOFBw?oc=5", "source": "부산일보", "date": "2026-03-23", "time": "17:54", "cat": "pediatrics", "imp": "medium", "lang": "ko"}, {"title": "시몬스, 삼성서울병원 소아청소년 환아 위해 3억 기부 - v.daum.net", "summary": "시몬스, 삼성서울병원 소아청소년 환아 위해 3억 기부  v.daum.net", "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE50MFJVVUl1OGtlZWRaWUhKbEpWQVFlVkRFTDJOTXpiTlNwMGlkV2xiMlRvTGxLdlhzNzdjcVJPbEQyZlU4Y3FKd0Q0OA?oc=5", "source": "v.daum.net", "date": "2026-03-23", "time": "17:29", "cat": "pediatrics", "imp": "medium", "lang": "ko"}, {"title": "시몬스, 삼성서울병원에 3억원 기부…7년째 누적 21억원 - 조선일보", "summary": "시몬스, 삼성서울병원에 3억원 기부…7년째 누적 21억원  조선일보", "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9vdXQtVzFMalRvZEVnNy1neVhsMnVvbXJEbEZJbDY5b3FKRGF3MVIyaFJCT1pBLTdoYUxGcWNwbHNuVk5vMzVMTV82TkNKUWtXS183VE9GaGZTSmxMZGgzTktaX1NBOEg4UmFvakppcEM3UkZqWUVxUNIBjAFBVV95cUxOMEdiUlZ4MEY2S3lzSTJEbWlkVXhQdjYwdm5OVGx1LTRLY3BRQnlkc0lyZGRMd3pFMnVrZmdsOTc0eGlHcDBLZ3oxWEwxTmR0Z3QyRjF5czQ1bTk4SEE3Vnl4ZkVSWDRRNl9paFZNNTY2dFE4TXBkUXI3clFWNTAwaFBmLWVJY3NBb2Q2WQ?oc=5", "source": "조선일보", "date": "2026-03-23", "time": "16:50", "cat": "pediatrics", "imp": "medium", "lang": "ko"}, {"title": "시몬스, 소아청소년 치료비 ‘3억원’ 기부 - 이뉴스투데이", "summary": "시몬스, 소아청소년 치료비 ‘3억원’ 기부  이뉴스투데이", "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE9HVjVCNFVTdXdhNHZwcUs2ekNWSDBWZjM1dXFaMUZ6N3NfaGozRlBLMmoxU0ZQV3EybVBsd0V6eFF0d3A2MTYyVUJuaVFkYUJPWmh1RzRzd0FxYUNjSmUzNFU0SWpGbFh4UlhHNV9aYXJ0NS1U0gF0QVVfeXFMT0dWNUI0VVN1d2E0dnBxSzZ6Q1ZIMFZmMzV1cVoxRno3c19oajNGUEsyajFTRlBXcTJtUGx3RXp4UXR3cDYxNjJVQm5pUWRhQk9aaHVHNHN3QXFhQ2NKZTM0VTRJakZsWHhSWEc1X1phcnQ1LVQ?oc=5", "source": "이뉴스투데이", "date": "2026-03-23", "time": "16:44", "cat": "pediatrics", "imp": "medium", "lang": "ko"}, {"title": "\"약품비 부담 해마다 늘어\" 약가제도 개편 힘 보태는 공단 - 의협신문", "summary": "\"약품비 부담 해마다 늘어\" 약가제도 개편 힘 보태는 공단  의협신문", "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE1hN2k4dmRZTnBDTllqR3ZQajBvMlJCX1VJZXJPRjZkOGdhSnNXcE82MkJES0hmUFoyWk5ucUFNM2U2cndnUGlOVzZRNVBrX1hSNDlMSXRfcDM0UVBNekhtWmpKOUV5Tk82X2xtTmdkRjFqZw?oc=5", "source": "의협신문", "date": "2026-03-23", "time": "15:44", "cat": "policy", "imp": "medium", "lang": "ko"}, {"title": "고바이오랩, 마이크로바이옴 기반 치료제 '큐어바이오틱스' 글로벌 시장 공략 - 핀포인트뉴스", "summary": "고바이오랩, 마이크로바이옴 기반 치료제 '큐어바이오틱스' 글로벌 시장 공략  핀포인트뉴스", "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE5OQUNuZE55V2thMERzSy1sWnZRenpaanhWQTdEdGZGU1pZTmQ2THZrVWhXSG9LWk4tRkxtR1dtOGRDb0VHSWhTWE9HWWpRT05QTmk5MzhsRWxNR1daaEdNMjIwWTJ2NmJCQ0E2RmRhbnFpeDDSAXdBVV95cUxNUDdHN1d0Q2kzdHNRS3Q0d0ZPSFk4WGlMd3A2N2Q4ZFNLQVlaYU9IWkRXT2RaeVFldlEyMloyekNjSWczTWxwTGJUUzlPVVNuWlRRMl9scjc2dFd1OHV0WWtoNTVIQUJUV2JqbTVNODJvWi02OHBEYw?oc=5", "source": "핀포인트뉴스", "date": "2026-03-23", "time": "14:46", "cat": "probiotics", "imp": "medium", "lang": "ko"}, {"title": "[김민석의 건강과 음악] 프로바이오틱스, 왜 누구는 듣고 누구는 안 들을까 - 경북신문", "summary": "[김민석의 건강과 음악] 프로바이오틱스, 왜 누구는 듣고 누구는 안 들을까  경북신문", "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE5NQVNieVJ0NjlKQ0NGcldpMlZwbU9JaldiZ1FIbTdlY0k5T0RYMVdEWjBEVmVySVFUcnZCR3VyZzFzX05UOWNLVkhnNEpSeUFLcktMbzlZb3E?oc=5", "source": "경북신문", "date": "2026-03-23", "time": "14:43", "cat": "probiotics", "imp": "medium", "lang": "ko"}, {"title": "38조 몰린 바이오 IPO… 돈은 ‘검증된 기술’로 - 바이오타임즈", "summary": "38조 몰린 바이오 IPO… 돈은 ‘검증된 기술’로  바이오타임즈", "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBFVW9JbWZpUmY4OExlcW1JMlF0R1pLU2xnTG9PajBxMnNUekw5YnphQlptVkczUHJTa0FrdTY1WDNOUmxaQXh2cWppVk45RDd6Tnd3V2lPWlJZVHU0NV90U0FMNXJaVUdsTzRPdA?oc=5", "source": "바이오타임즈", "date": "2026-03-23", "time": "14:39", "cat": "pharma", "imp": "medium", "lang": "ko"}, {"title": "건강보험 약품비 27.7조 원, 전년대비 5.6% 증가… 2024년 급여의약품 지출 분석 - 경기메디뉴스", "summary": "건강보험 약품비 27.7조 원, 전년대비 5.6% 증가… 2024년 급여의약품 지출 분석  경기메디뉴스", "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE1SMXpiZVlCME5Lckxrbkh0MFVDNy1mcmZYejFCdWlEbXg5aGRvS09TWlU3VFRGdGpiRE50RktoTVJ1RXRPSC16YktIN0hDQ3A2TVRPNWpNUFFRTlBuZTVkbDN6QUlPaFMyZjFr?oc=5", "source": "경기메디뉴스", "date": "2026-03-23", "time": "14:14", "cat": "policy", "imp": "high", "lang": "ko"}, {"title": "\"급여의약품 제네릭 비중 높아진다…2024년 44.4%\" - 약사공론", "summary": "\"급여의약품 제네릭 비중 높아진다…2024년 44.4%\"  약사공론", "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBrR2ttMmVYbEhTbDV6MlRSdFlhdTZheXB0ckZqZkhrZjV1QUFHdlZBTGszTHFIUmlUUDBTbzJuUEVLeWtPM3dPQ3hwejRESUplSTlHcFBabG1oYUZYWXk2S0NQWFpPNzNPdXRXaA?oc=5", "source": "약사공론", "date": "2026-03-23", "time": "12:01", "cat": "policy", "imp": "high", "lang": "ko"}, {"title": "\"건강보험 약품비 27조원 돌파… 진료비 비중 23.8% 차지\" - 히트뉴스", "summary": "\"건강보험 약품비 27조원 돌파… 진료비 비중 23.8% 차지\"  히트뉴스", "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTFAzaFFXS25HTHlrRkJhWHY2S2VDS1Q4MEJnR3RxYWNsV3locjJNcS1sMXUxRjU1VE5jMnVwMkZSU01XUWZmREdaTU9rcFBnZ0RKLTdsbVN5QTQ3ZXZoT1kzOXl1b0dlSFFselpJ?oc=5", "source": "히트뉴스", "date": "2026-03-23", "time": "12:01", "cat": "policy", "imp": "medium", "lang": "ko"}, {"title": "건보 급여의약품 지출 27.7조…전년比 5.6% 증가 - 팜뉴스", "summary": "건보 급여의약품 지출 27.7조…전년比 5.6% 증가  팜뉴스", "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE01NXRheWQtLWRBLVNmd0ZFclVCM3VkQjlvRUZvcXhZanM2d2R6em9zS0dpc3pxYVNQUmlQZGVmd21rVEVBX2R0MXctWElzOWJqNUd2dUFzUVlaV3lCSHVaZTJrZnpQSTBLNmU2Vg?oc=5", "source": "팜뉴스", "date": "2026-03-23", "time": "12:00", "cat": "policy", "imp": "high", "lang": "ko"}, {"title": "JW중외제약, 탈모 신약 후보 'JW0061' 임상 1상 착수 - MSN", "summary": "JW중외제약, 탈모 신약 후보 'JW0061' 임상 1상 착수  MSN", "url": "https://news.google.com/rss/articles/CBMivgNBVV95cUxNcWNtMEx3UTY3SWZiMG5yaWVBalVvelduUGxOT0Y0VTBSLVJETHFvbzM1Z3NQYXRDekYyd1BrVTZYeU5EelQ2MUVUdXBCRjJlTFlBZnB4THRtY0FSbVJXLXpyZ19acS1aclh1QzM5d2FKU1hkQWFrcUFPbGQ5TDVod3gzQlptZWstYUs5b2pnRDhuWWNpeHhiWUZYNS1UTTlQYlZXWVRfams2Q3R6U3UxdGxuNXR3RUVPN1l0QVh3NmVJOVJSajVwQnJ3TWxPWnA5UFp6T09iRk82cmR2cW5uekx3aWh3d2pyRXg4cjh5WDdqWlZnQXYzelZXaVFtc2htbDF6SXJ0ZnFRUjkwSzh5bEpPeXpUb2Ffemk1cWEydnZEY0FtWGJYZUVOaWRaQ29OcEVsLUVoWkNUVWJkek5Cbm1MWUVYOFRPUE54em5jR0d0SUJvdVZJNk5MQnJ0U1ROM3pHV0Fub25qMkZucE8xcWI2czBYTG1FSkM1a0FJOTltRzFCSUs1UDdNaXRFUW0wZzVSaERqVEU3cExpc0tVU3g0bnhzYThYY2djeHBheGMyMnpFcjhBRUk2S2NvUQ?oc=5", "source": "MSN", "date": "2026-03-23", "time": "11:46", "cat": "clinical", "imp": "high", "lang": "ko"}, {"title": "[친환경경영]-② 피부 환경을 결정짓는 마이크로바이옴 생태계 〈코스맥스 FACE-LINK〉 - 핸드메이커", "summary": "[친환경경영]-② 피부 환경을 결정짓는 마이크로바이옴 생태계 〈코스맥스 FACE-LINK〉  핸드메이커", "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBSaW85MXlHS1ZqQkhXVlpRZUx4VHZiVWIyMjUwN0NUS2dPTnQ1YUpkOE8xZ05BTG56YzVsd3UwNW9mdnFUNnBlTTVXdEcwNmM0akJoWEdEemJPeTRnLUk2X2ptQlB4X2M?oc=5", "source": "핸드메이커", "date": "2026-03-23", "time": "11:13", "cat": "probiotics", "imp": "medium", "lang": "ko"}, {"title": "엡글리스, 3상 임상시험에서 긍정적 결과 확인 - 약업신문", "summary": "엡글리스, 3상 임상시험에서 긍정적 결과 확인  약업신문", "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTFBienUxTVpTWkZ4enlRd1gxLW4zdElpOVpQaXpWeVF5RTJRWUhDYjVKOHdPT3J6TjNtdTQyVWxQYXVkMHFOc2pmbXF4RUM4Y3VxTXc1T1RJSFhxU2pQUFlnb182NkQ3UTh5RWdncjUxbnBYQzhyMFJv?oc=5", "source": "약업신문", "date": "2026-03-23", "time": "10:15", "cat": "clinical", "imp": "high", "lang": "ko"}, {"title": "시몬스, 삼성서울병원에 소아청소년 환아 치료비 3억원 기부 - 뉴스드림", "summary": "시몬스, 삼성서울병원에 소아청소년 환아 치료비 3억원 기부  뉴스드림", "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5KVHpEWTVKTFc4SDZQckRsMnU0MEVYRzhXeHFaNmc3eUZwVTJrU2R6eGhfbDltZzFOcDBKczRYOUlwLVFBaXlBQXgwa0VjSTJfRWRDclpJeWxoU1ZQc05LRFE2RlZLdS1LSUJ4d0x30gFuQVVfeXFMTkpUekRZNUpMVzhINlByRGwydTQwRVhHOFd4cVo2Zzd5RnBVMmtTZHp4aF9sOW1nMU5wMEpzNFg5SXAtUUFpeUFBeDBrRWNJMl9FZENyWkl5bGhTVlBzTktEUTZGVkt1LUtJQnh3THc?oc=5", "source": "뉴스드림", "date": "2026-03-23", "time": "10:13", "cat": "pediatrics", "imp": "medium", "lang": "ko"}, {"title": "관저주민건강센터서 “어린이 건강 쑥! 튼튼 쑥!” - 뉴스홈", "summary": "관저주민건강센터서 “어린이 건강 쑥! 튼튼 쑥!”  뉴스홈", "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFA0aTNYT3RMbDM4Y2RDanF0NElObmljSkVCczByamJ3VFhuZnhhSUluM2pyWnRTei1WVElCeW5jV1pPRGtJWXZ3eGx3dmJHWllaNU9BbDVtU3JBQWItWXFaektDcWNCal9NcVVTWWJB?oc=5", "source": "뉴스홈", "date": "2026-03-23", "time": "10:11", "cat": "pediatrics", "imp": "medium", "lang": "ko"}, {"title": "GLP-1 drugs cut heart and kidney risks in type 1 diabetes study - News-Medical", "summary": "GLP-1 drugs cut heart and kidney risks in type 1 diabetes study  News-Medical", "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPR1pDcnN3UHdwVXhGUE9maUJvTk1sc1V2bnkzWnZZTlRybEZrYjczamxFQ0I5X2pKcmxRaFJIZXJpYTJNeTZpbHg1UTg2bFZKNldCNE9nZEdqT28wRHhUbHBESzh1LVl2VjRuWjloMm9pMmhhY1NrR2dkWHNmMlN3M0FvZTZVUkc1RnlmZ21IUDRDZ2w0X0FYZmczVnBVNFBtdUVQYXl2aWdvd1BaUEZ5MA?oc=5", "source": "News-Medical (EN)", "date": "2026-03-23", "time": "09:05", "cat": "chronic", "imp": "medium", "lang": "en"}, {"title": "시몬스, 삼성서울병원 소아청소년 환아에 3억 쾌척…누적액 21억 - 뉴스1", "summary": "시몬스, 삼성서울병원 소아청소년 환아에 3억 쾌척…누적액 21억  뉴스1", "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE5NZGtlN0s2b1ByNlNxQkhQbDlvM2UyNE1Md3MxZ1dPd21RNnIzeTQzLU9SZTFESDBzUklwYVBKOVdJVnVZWFVOTkhDa0VsM0tGZjFuci1uV2RVTGtjTll6VFVnUUI?oc=5", "source": "뉴스1", "date": "2026-03-23", "time": "08:58", "cat": "pediatrics", "imp": "medium", "lang": "ko"}, {"title": "소아청소년 의료 정책의 민낯 - 메디칼타임즈", "summary": "소아청소년 의료 정책의 민낯  메디칼타임즈", "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFAxMnVyRjFiazA3N0lpNlQ5YVVtSk5rVTQzVjBON0lJUnBaSHJWVmZrTm9aMmhhano0S3BVdGxNaHlSSmhqWlZHUDI3cllHNWgzM3NqZV9nMzZpSlNUeGtqRTE1QndiSjY2YmExVWpzemI?oc=5", "source": "메디칼타임즈", "date": "2026-03-23", "time": "05:00", "cat": "pediatrics", "imp": "medium", "lang": "ko"}];
-const UPDATE_TIME='2026.03.24 07:00';
-
-let curCat='all', curDate='all';
-
-function tog(el){
-  el.closest('.card').classList.toggle('open');
+var CL={dermatology:"탈모·피부과",clinical:"임상시험",approval:"신약 승인",policy:"정책·규제",pharma:"제약사 동향",probiotics:"프로바이오틱스",pediatrics:"소아과",chronic:"만성질환",rifaximin:"Rifaximin",general:"일반"};
+var D=[{"title": "[강세 토픽] 탈모 치료 테마, 위더스제약 +5.52%, JW중외제약 +5.00% - 조선비즈 - Chosunbiz", "summary": "[강세 토픽] 탈모 치료 테마, 위더스제약 +5.52%, JW중외제약 +5.00% - 조선비즈  Chosunbiz", "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOQWlkZ21iM2o5cXRsYnNHRmVDVDNOTUlyS01ydHNLZlhpSV9MaWxhV3Y1eWNhNVA1T1RRbTlETXJQUS1SVmdaejdmaEE4SmxiekJpV0wwUjVnbk8tNmEzZHNGYlNPZGRCYUpnYVp3N2NteFJxNldtWEpVQm8wYy05VGlDONIBlwFBVV95cUxOODJVSVZvTHIzd3JoVGFoaHcyaldRcHJqR2tOSGZMR1FCTVBLVV9BT3pQZktfb3FjaHI5LUNHTGw1ZGhoaW9QaFFrOTZVVm1ia1U0QWxPWmhGRWVzSFRJVlJ5YzBZVUxoUFp1QmxSTDdHY01DYklaUmx2NXA1bFlhc0lnbHgwWWprWnl1RThXYUlRTFVoQl9F?oc=5", "source": "Chosunbiz", "date": "2026-03-23", "time": "", "cat": "dermatology", "imp": "medium", "lang": "ko"}, {"title": "정책 타고 커지는 탈모 치료제, K-신약들 공략 준비 - 메디칼업저버", "summary": "정책 타고 커지는 탈모 치료제, K-신약들 공략 준비  메디칼업저버", "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBiS3dPZ3I3bGlKVFhjOE5adm5YUDhLX3NySVRkblBhV2FlVWpSZlpya1dRMkxaRTJ5TjhmRFZSOWdsZERHMEJqdEVUNjN2VG4wYTRTQWhQeEtxeTBPbDA1U1NYaC03d1daaDB3?oc=5", "source": "메디칼업저버", "date": "2026-03-23", "time": "", "cat": "dermatology", "imp": "high", "lang": "ko"}, {"title": "“빠진 머리 다시 자라게 한다?”…JW중외제약, ‘모낭 재생’ 탈모 신약 판 흔든다 - 팜이데일리", "summary": "“빠진 머리 다시 자라게 한다?”…JW중외제약, ‘모낭 재생’ 탈모 신약 판 흔든다  팜이데일리", "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE13dDY2QXBzUWZ1RS1uRjNMeXlGQUpmbFBnbEV5UzdocEtGcWtHLVlvTFdIcmlId0dFWHo5cW1oN2NRZE1Nd19wV01GN01kQVU1Q1pudmtfZGJYYTExNGQtcHp5VWlyeTBoRVVoeENR?oc=5", "source": "팜이데일리", "date": "2026-03-23", "time": "", "cat": "dermatology", "imp": "high", "lang": "ko"}, {"title": "탈모 ‘방지’ 넘어 ‘치료’ 시대 오나···JW중외제약, 치료제 후보물질 미국 특허 등록 - 경향신문", "summary": "탈모 ‘방지’ 넘어 ‘치료’ 시대 오나···JW중외제약, 치료제 후보물질 미국 특허 등록  경향신문", "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBrRjBzc1U5R1ltbDNybEd2UUk2N3c0SGN2Z21CMmcwa3l6d0M1TEF0MmROczhFQnRhdGNzNWFEVmRZQS1US1dUc3p4MUZBOEZKeWV4MTU3U1h0QdIBX0FVX3lxTE5tTnNNdS1CRVlVLUdjOEFlczlaZUdZWEEtZGJRQmJfNDR1WFVBNXNFNlZESjlFbFFSRDdJMjhsbUdQbUpDYU9PN2lJUFg0SngzR0hBdjRJUE4tbUhjNThr?oc=5", "source": "경향신문", "date": "2026-03-23", "time": "", "cat": "dermatology", "imp": "medium", "lang": "ko"}, {"title": "남성호르몬 억제 아니다…'재생형 탈모약' 첫 임상 돌입 - 약사공론", "summary": "남성호르몬 억제 아니다…'재생형 탈모약' 첫 임상 돌입  약사공론", "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5lTEtpaHRiaXdxM0RIMlp4Ylg3bFQ4SmttX2RzY0hrZ3ZyeXlHODlidUNuS3g4MjZIdkJON1ZCaVVIdnhTZ3dhdkJZNHpZOThPWml6S2todnZzUkVWNTZUc1NBejdaSHpGc0lHYw?oc=5", "source": "약사공론", "date": "2026-03-23", "time": "", "cat": "dermatology", "imp": "medium", "lang": "ko"}, {"title": "\"주사로 잠든 모낭 깨운다\" 탈모, 재생치료 시대 열린다 - 파이낸셜뉴스", "summary": "\"주사로 잠든 모낭 깨운다\" 탈모, 재생치료 시대 열린다  파이낸셜뉴스", "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1IeEJNcVRMTTZFS1BYalNwYzA4a1hVbFVjNUFnUks5SEptd0dPcnNkNFR3QXlrZWF2RTVBVGNnLUp5cEdyNk1tUWR1OWhDZUNNM2I5NVZmcHRLZ9IBXkFVX3lxTE90U3VrVDNUaVdWZk4wV2VPYUdRNDdic21MQmpkNW5iQV9zcGYtbTlxR1FwdEhOTXJWeTQ3YmI2Nk9SYTZnbUJiYmVnOGRyU2VTbERVN2JOc3dtcVFwY3c?oc=5", "source": "파이낸셜뉴스", "date": "2026-03-23", "time": "", "cat": "dermatology", "imp": "medium", "lang": "ko"}, {"title": "셀트리온 '스테키마', 52주 임상 결과 국제 피부과 학술지 게재 - 메디파나뉴스", "summary": "셀트리온 '스테키마', 52주 임상 결과 국제 피부과 학술지 게재  메디파나뉴스", "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE04M3NmWTZJZ1NkdHRuMVM5TW80LXllVDlWS2xJTGw4UWxCZ0ljOHRjWUNMdFhKclhBVC1JNEh2MmtKVmlsMmtPOVUxWWxBdXp0c2JDdjhyTUd0WWhlVlVkcDJaejBkNk5CQlBn?oc=5", "source": "메디파나뉴스", "date": "2026-03-23", "time": "", "cat": "dermatology", "imp": "medium", "lang": "ko"}, {"title": "셀트리온 스테키마, 피부과 국제 학술지에 임상 3상 게재 - 연합뉴스", "summary": "셀트리온 스테키마, 피부과 국제 학술지에 임상 3상 게재  연합뉴스", "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5oTTFFaThzZWNwbTNfT2RZMjIzenFWY2d5cDBtUVBtRG5XY2dYS05pVWJjaEV4b2J4LTQ1Wm8xVnJqVDRkVVg1TVJuREVlMHpzcEtHRF9VbG5uWFnSAWBBVV95cUxPc3FGZWlUU0JaY1o5SzhrX242RXlLSzU1ZXAwZVc0aUEtMWp3S0xRbFd3emZZMEMxOUFTQVlyY0hSVm1WS3Q4Y0JwWTVpNXlqSmJLcVJIWFhuaEV2UzdWb0E?oc=5", "source": "연합뉴스", "date": "2026-03-23", "time": "", "cat": "clinical", "imp": "high", "lang": "ko"}, {"title": "[단독] 유효기간 지난 스테로이드 주사…대구 한 피부과, 미성년 환자 투여 논란 - 영남일보", "summary": "[단독] 유효기간 지난 스테로이드 주사…대구 한 피부과, 미성년 환자 투여 논란  영남일보", "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBoSWFfWEd6V3JhRkxJS1ZKZTFaaklRYThJUjljbFRfUzRyTmJfWWNYVHlpZXdDbjhmRWJkeXNSWnliR1VLcUFuenhtak91V1RQZS1Ea3R1bXltaTRBek5nOS03MzJaNElScXF3?oc=5", "source": "영남일보", "date": "2026-03-23", "time": "", "cat": "dermatology", "imp": "medium", "lang": "ko"}, {"title": "[허가/임상] CRM 신약물질 '비카드로스타트' 당뇨·고혈압 3상 승인 - 히트뉴스", "summary": "[허가/임상] CRM 신약물질 '비카드로스타트' 당뇨·고혈압 3상 승인  히트뉴스", "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9kT3BoM2tmUnJhNFlxWVpNTkxaMVFqUUZHaWE3WDd2eS1xd1p0S0szczRWemozT2lPSXFFWV81cUFlT09ZTl9CRDE4OG45dUJmVnhJUjUwQ3dFV1A4SnVaTGpzem15THVWNzBR?oc=5", "source": "히트뉴스", "date": "2026-03-23", "time": "", "cat": "chronic", "imp": "high", "lang": "ko"}, {"title": "오토텔릭바이오, 브라질 Ache에 고혈압·당뇨 동시 치료제 기술이전 성공 - 약업신문", "summary": "오토텔릭바이오, 브라질 Ache에 고혈압·당뇨 동시 치료제 기술이전 성공  약업신문", "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBDc2dLdzRGN1QtT2V0NlFzcS1EQjh1WGpEY29SNnM4VnVLbzUwVThINVRrcExBYmgxYjlrUkZJMEVlRUdPM0l5ZUtBZFIyVV9McUZFWlBwMHBvZ2pOc2E2NFRoUHlrUQ?oc=5", "source": "약업신문", "date": "2026-03-23", "time": "", "cat": "chronic", "imp": "medium", "lang": "ko"}, {"title": "오토텔릭바이오, 브라질 제약사에 개량신약 ‘ATB-101’ 기술이전 - 팜이데일리", "summary": "오토텔릭바이오, 브라질 제약사에 개량신약 ‘ATB-101’ 기술이전  팜이데일리", "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBQWjc1enRhV1lXbDUyQWZZeUFITDk1Z2tRT1NicUtQbjVKdm1CcllVUkthaWtOOVdUd3FlUmpOZjFVbUJwNjdkSkVZa1B3WTktcXNXZlgyUU5OQWxUVzRHcWpSc3lxeEtVTzl4endn?oc=5", "source": "팜이데일리", "date": "2026-03-23", "time": "", "cat": "pharma", "imp": "high", "lang": "ko"}, {"title": "마운자로도 수면 치료 효과… “자다가 컥” 수면 무호흡증 파고드는 제약업계 - 조선비즈 - Chosunbiz", "summary": "마운자로도 수면 치료 효과… “자다가 컥” 수면 무호흡증 파고드는 제약업계 - 조선비즈  Chosunbiz", "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPSmpRS0UweVJjTWlTYVVmaWN0VDBSUEZTemhHYzctUENjTHRoQ1pQU3pzN3JKbFpSQUQ2TXpjbFVYV296cFhwVlNhNDg3dXM3NW1JRm9tc25QMWhaclFMMDExWWdzdmlzaERhTGFxR3BxYUVabnlyVjYxb1dWWlBzNFlyY1hPNW_SAZsBQVVfeXFMTjVlSVpyY3pEdUFHdFZXbkprY1U5YnYtSndKRVpyVFNKU1VjVEJYcDZHZkVsRTZZLVBONVpmbWZYOFRpZTA4VlpKUXk5c0ZFN2Vvd0pTN1RDdDdsVVZrd3FxcXlBNjd1bWpzTW1TQU54dDVjbTdMQ1hkTGszZXpmWDZta1lvT0MyVmlNLTZWX0tZZHJFR3FnbGI4cm8?oc=5", "source": "Chosunbiz", "date": "2026-03-23", "time": "", "cat": "pharma", "imp": "medium", "lang": "ko"}, {"title": "치료제 발전이 바꾼 '신장질환' 진료 풍경‥1차 의료 핵심化 - 메디파나뉴스", "summary": "치료제 발전이 바꾼 '신장질환' 진료 풍경‥1차 의료 핵심化  메디파나뉴스", "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBicEdjV09zbW9VelBoZFF3SHFpWTBZa0ZLQ25XTUgwejUwZDhWLWZnWlZCdEVVTDFySzJEcVhrRGxEdjFMRVlISkxNemd6MjFHNFFkN21pUWo4U3M2eElFZy1LaHVyUU1DaUZn?oc=5", "source": "메디파나뉴스", "date": "2026-03-23", "time": "", "cat": "chronic", "imp": "medium", "lang": "ko"}, {"title": "‘당뇨+고혈압’ 복합제 개발 성공할까···보령과 오토텔릭바이오 도전장 - 시사저널e", "summary": "‘당뇨+고혈압’ 복합제 개발 성공할까···보령과 오토텔릭바이오 도전장  시사저널e", "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFBBQ0ZnZ0pMMXFaY004T3FHaDU0OTdYeVlnc1BfUDI1Z01rRWRGOWVhamF1YTJtVFViVFN2V2VuQW14WFNYZGlOZzFpSl9nRHB5MXBTXy1pd3Fxd3B5Q19FcjlkdTVKRC1GbFk3SS1EUE52Z9IBdkFVX3lxTFBpUUgyYnVmRVd2MzhzenZGOE5nd3ZDRm13ZF9lWTdOYW1MUFhva2hZS2Nsd01oUUV3eVhDaGZnMFJvUDBsSUJQMkFFZGF2bm5PejVjS05NeXFLOUJGTDZ4blBnRWRTQllPWUMtVVhsV0FOMHRUaEE?oc=5", "source": "시사저널e", "date": "2026-03-23", "time": "", "cat": "chronic", "imp": "medium", "lang": "ko"}, {"title": "유전자 치료제 시장 '확장 국면'…에스티팜·올릭스 등 주목 - 약업신문", "summary": "유전자 치료제 시장 '확장 국면'…에스티팜·올릭스 등 주목  약업신문", "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBsUU1PN0pxOG42aE9aWGg1QkhXNlBwMGhQV0JpWm5Ua281dThRQ00xbzRFZC00SzNzSHB5MWJIMVBzTFItSTd4ODFBSWZYaU9QWThyMW1hZ3EwX0RianJTdDd1cVFvUQ?oc=5", "source": "약업신문", "date": "2026-03-23", "time": "", "cat": "chronic", "imp": "medium", "lang": "ko"}, {"title": "하나증권 \"한미약품 고지혈증 제네릭에서 압도적 매출 성장, 비만 약 내년 4분기부터 매출 기대\" - 비즈니스포스트", "summary": "하나증권 \"한미약품 고지혈증 제네릭에서 압도적 매출 성장, 비만 약 내년 4분기부터 매출 기대\"  비즈니스포스트", "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE5DV3Q4RUswTDBTUDh1VDJINHlBM1lEWU53XzItZGx5SVZwenJ4WHRTTjZSNU0zVm1hOS1xX0lpemdZNnk1eHZPNXVtaEdySEJKaDA1MzlBaDctbG0wVGZjejlDVXVHbXVTSWdSZjRreTgwc3c?oc=5", "source": "비즈니스포스트", "date": "2026-03-23", "time": "", "cat": "chronic", "imp": "medium", "lang": "ko"}, {"title": "[허가/임상] 암젠, 월1회 비만 치료제 '마리타이드' 3상 승인 - 히트뉴스", "summary": "[허가/임상] 암젠, 월1회 비만 치료제 '마리타이드' 3상 승인  히트뉴스", "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTFA0SHliQ3hyNFdoUTFrUFdKeXhManh1TDJYWUoyX2FUaVdsbW9yb3hIUGEyakFrUzRBTHk4NzFQR3JEc0txTE1uZU5BcHlMUnpLdWtwVVpvTm1KQUpNakJyNzBTZzVsRTNPNC1n?oc=5", "source": "히트뉴스", "date": "2026-03-23", "time": "", "cat": "approval", "imp": "high", "lang": "ko"}, {"title": "‘비만치료제’가 다이어트약으로? 위고비 오남용 실태에 전문가들 경고 - 조선일보", "summary": "‘비만치료제’가 다이어트약으로? 위고비 오남용 실태에 전문가들 경고  조선일보", "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE43MVFTZHdNb2swOU5JNUR1c3UybTRDakJLUTdZc1ZCRVJyeEhFNkljUWxJV3BGZGVZM3Z0YlVIbndnNlhnM1RYUXJrYzg0dmh1eWRQUGpraUhyN3R1VUxnLUVUOGdkMDZfSEFocmZISG9lOTdxSHc?oc=5", "source": "조선일보", "date": "2026-03-23", "time": "", "cat": "chronic", "imp": "medium", "lang": "ko"}, {"title": "[김민석의 건강과 음악] 프로바이오틱스, 왜 누구는 듣고 누구는 안 들을까 - 경북신문", "summary": "[김민석의 건강과 음악] 프로바이오틱스, 왜 누구는 듣고 누구는 안 들을까  경북신문", "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE5NQVNieVJ0NjlKQ0NGcldpMlZwbU9JaldiZ1FIbTdlY0k5T0RYMVdEWjBEVmVySVFUcnZCR3VyZzFzX05UOWNLVkhnNEpSeUFLcktMbzlZb3E?oc=5", "source": "경북신문", "date": "2026-03-23", "time": "", "cat": "probiotics", "imp": "medium", "lang": "ko"}, {"title": "[맞춤형치료] 분당서울대병원 소화기내과 김나영 교수팀 - 서울뉴스통신", "summary": "[맞춤형치료] 분당서울대병원 소화기내과 김나영 교수팀  서울뉴스통신", "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBvSlppcmg2amZmMmNTd3Vrb01ZLWY4V0xmVWJSbl94M04tN0lKUmdWSFZkSEkzMktiV2VfNVBtMnB4SGZGTGl2ejB2WWlxeGhjdGlIbFZSZlB5VGhFUnRiOEtaRlR5OC1mLWNj?oc=5", "source": "서울뉴스통신", "date": "2026-03-23", "time": "", "cat": "probiotics", "imp": "medium", "lang": "ko"}, {"title": "잦은 복통 ‘과민성장증후군’…성별 따라 치료 효과 달랐다 - 농민신문", "summary": "잦은 복통 ‘과민성장증후군’…성별 따라 치료 효과 달랐다  농민신문", "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBxbGJMVmZTUXZ1aFJseWhlNkpEX3gxcHJtVF9JTVVoLVFVRVhkaXM5YzRTeWhlVXhEdTVYUUlfTjJoY0xWUkUzOFJ4N2plSThodUZkdnZuRzNiZw?oc=5", "source": "농민신문", "date": "2026-03-23", "time": "", "cat": "rifaximin", "imp": "medium", "lang": "ko"}, {"title": "“효과 봤다”는 친구에게 추천 받은 유산균, 나한테는 별로인 까닭 - 조선일보", "summary": "“효과 봤다”는 친구에게 추천 받은 유산균, 나한테는 별로인 까닭  조선일보", "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9hZUFvY0xMZUdaV0FDMDFJRF9GM0NTUGhDNDZ6RWZWc0F4aTdsZ256SGQtaXlYUERCRWJQRTRZeEFxX21KUUotc2NiOHRNSzIydTBJZXJ5aTYxMHVEM1c2MjhiUTdnUmdBU0xLQUFpRUNZR1M4dnc?oc=5", "source": "조선일보", "date": "2026-03-23", "time": "", "cat": "probiotics", "imp": "medium", "lang": "ko"}, {"title": "프로바이오틱스 구성성분 ‘펩티도글리칸’, 장염증 완화에 도움된다 - 헬스경향", "summary": "프로바이오틱스 구성성분 ‘펩티도글리칸’, 장염증 완화에 도움된다  헬스경향", "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5NM18xS1VIbmZ6NFE3VjY3OVBHNVRaNVJJSW5fbmRDcWZxVl9rU0VXOHhUOFVlNWJnNHIyeFRtREpWV1VrRk1BUHVyX0FGUjN5T243V2JDX2R6UDQtbTZQVVNJV0RGQWJUSWc?oc=5", "source": "헬스경향", "date": "2026-03-23", "time": "", "cat": "probiotics", "imp": "medium", "lang": "ko"}, {"title": "\"어린 시절의 건강한 음식이 평생 건강 식습관 좌우한다\" - 사이언스타임즈", "summary": "\"어린 시절의 건강한 음식이 평생 건강 식습관 좌우한다\"  사이언스타임즈", "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNdkVncVZKX2FGb0ZDR0drbTB3cy1JS3M4dE9BZjVnS1NNQnN2cmJaTjNkajI5RGY2MTY4MGdTdXpVUTQ0TV9mVVFfWGYzbWZzakxhZ0t4SHVuSVBMOFBDZ0ZDUVphRUs3b0JqaHhFZlQ1emNra283Qk5mWVJoSng2Z3J3b3JacnRQVkdqVzlQOA?oc=5", "source": "사이언스타임즈", "date": "2026-03-23", "time": "", "cat": "probiotics", "imp": "medium", "lang": "ko"}];
+var curCat="all",curDate="all";
+function tog(card){card.classList.toggle("open");}
+function card(a,i){
+  var cl=CL[a.cat]||"일반";
+  var imp=a.imp==="high"?"<span class='bdg imp'>★ 주요</span>":"";
+  var en=a.lang==="en"?"<span class='bdg en'>EN</span>":"";
+  var ds=a.time?a.date.replace(/-/g,".")+' '+a.time:a.date.replace(/-/g,".");
+  var sm=a.summary?a.summary:"원문을 확인해주세요.";
+  return "<div class='card "+(a.imp==="high"?"hi":"md")+"'>"
+    +"<div class='card-hd' onclick='tog(this.closest(".card"))'>"
+    +"<div class='ctop'><span class='bdg "+a.cat+"'>"+cl+"</span>"+imp+en+"</div>"
+    +"<div class='ctit'>"+a.title+"</div>"
+    +"<div class='cmeta'><span class='csrc'>"+a.source+"</span><span style='color:var(--bg4)'>·</span><span class='cdt'>"+ds+"</span></div>"
+    +"</div>"
+    +"<div class='cbody'>"
+    +"<div class='csum'>"+sm+"</div>"
+    +"<div class='cfoot'><a class='clink' href='"+a.url+"' target='_blank' rel='noopener'>"
+    +"<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6'/><polyline points='15 3 21 3 21 9'/><line x1='10' y1='14' x2='21' y2='3'/></svg>"
+    +"원문 기사 보기 ("+a.source+")</a></div>"
+    +"</div>"
+    +"<div class='ctog' onclick='tog(this.closest(".card"))'><span>요약 · 원문 링크</span><span class='arr'>∨</span></div>"
+    +"</div>";
 }
-
-function cardHTML(a, idx){
-  const cl=CATS_LBL[a.cat]||'일반';
-  const impBadge=a.imp==='high'?'<span class="badge imp">★ 주요</span>':'';
-  const enBadge=a.lang==='en'?'<span class="badge en">EN</span>':'';
-  const ds=a.time ? a.date.replace(/-/g,'.')+' '+a.time : a.date.replace(/-/g,'.');
-  const summary=a.summary
-    ? '<div class="csummary">'+a.summary+'</div>'
-    : '<div class="csummary" style="color:var(--text3);font-style:italic">요약 없음 — 원문을 확인해주세요.</div>';
-  return '<div class="card '+(a.imp==='high'?'hi':'md')+'" id="card'+idx+'">'
-    +'<div class="card-hd" onclick="tog(this)">'
-    +'<div class="ctop"><span class="badge '+a.cat+'">'+cl+'</span>'+impBadge+enBadge+'</div>'
-    +'<div class="ctitle">'+a.title+'</div>'
-    +'<div class="cmeta"><span class="csrc">'+a.source+'</span><span style="color:var(--bg4)">·</span><span class="cdate">'+ds+'</span></div>'
-    +'</div>'
-    +'<div class="cbody">'
-    +summary
-    +'<div class="cfooter">'
-    +'<a class="clink" href="'+a.url+'" target="_blank" rel="noopener">'
-    +'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>'
-    +'원문 기사 보기 ('+a.source+')'
-    +'</a></div>'
-    +'</div>'
-    +'<div class="ctoggle" onclick="tog(this)">'
-    +'<span class="ctoggle-txt">요약 · 원문 링크</span>'
-    +'<span class="carr">∨</span>'
-    +'</div>'
-    +'</div>';
-}
-
-function buildTabs(){
-  const dates=[...new Set(ARTICLES.map(a=>a.date))].sort().reverse();
-  const tabs=document.getElementById('tabs');
-  let html='<button class="tab '+(curDate==='all'?'on':'')+'" onclick="selDate('all',this)">전체 <span style="font-size:10px;opacity:.6">'+ARTICLES.length+'</span></button>';
+function tabs(){
+  var dates=[...new Set(D.map(function(a){return a.date;}))].sort().reverse();
+  var h="<button class='tab on' onclick='selD("all",this)'>전체 <span style='font-size:10px;opacity:.6'>"+D.length+"</span></button>";
   dates.forEach(function(d){
-    const cnt=ARTICLES.filter(function(a){return a.date===d;}).length;
-    const dd=new Date(d+'T00:00:00+09:00');
-    const today=new Date(); today.setHours(0,0,0,0);
-    const diff=Math.round((today-dd)/86400000);
-    const lbl=diff===0?'오늘':diff===1?'어제':diff<=7?diff+'일 전':dd.toLocaleDateString('ko-KR',{month:'short',day:'numeric'});
-    html+='<button class="tab '+(curDate===d?'on':'')+'" onclick="selDate(''+d+'',this)">'+lbl+' <span style="font-size:10px;opacity:.6">'+cnt+'</span></button>';
+    var n=D.filter(function(a){return a.date===d;}).length;
+    var dd=new Date(d+"T00:00:00+09:00"),t=new Date();t.setHours(0,0,0,0);
+    var df=Math.round((t-dd)/86400000);
+    var lb=df===0?"오늘":df===1?"어제":df+"일 전";
+    h+="<button class='tab' onclick='selD(""+d+"",this)'>"+lb+" <span style='font-size:10px;opacity:.6'>"+n+"</span></button>";
   });
-  tabs.innerHTML=html;
+  document.getElementById("tabs").innerHTML=h;
 }
-
-function selDate(d,btn){curDate=d;document.querySelectorAll('.tab').forEach(function(b){b.classList.remove('on');});btn.classList.add('on');render();}
-function fCat(cat,btn){curCat=cat;document.querySelectorAll('.cat').forEach(function(b){b.classList.remove('on');});btn.classList.add('on');render();}
-
+function selD(d,b){curDate=d;document.querySelectorAll(".tab").forEach(function(x){x.classList.remove("on");});b.classList.add("on");render();}
+function fCat(c,b){curCat=c;document.querySelectorAll(".cat").forEach(function(x){x.classList.remove("on");});b.classList.add("on");render();}
 function render(){
-  var list=ARTICLES;
-  if(curDate!=='all') list=list.filter(function(a){return a.date===curDate;});
-  if(curCat!=='all')  list=list.filter(function(a){return a.cat===curCat;});
-  document.getElementById('st').textContent=ARTICLES.length;
-  document.getElementById('sh').textContent=ARTICLES.filter(function(a){return a.imp==='high';}).length;
-  document.getElementById('ss').textContent=[...new Set(ARTICLES.map(function(a){return a.cat;}))].length;
-  document.getElementById('stxt').textContent=ARTICLES.length+'건 · 매일 오전 6시 자동 업데이트';
-  document.getElementById('update-time').textContent='⚡ '+UPDATE_TIME+' 업데이트';
-  var el=document.getElementById('alist');
-  if(!list.length){el.innerHTML='<div class="cmsg"><div class="ctit2">해당 조건의 기사 없음</div><div class="cdesc">날짜나 카테고리를 바꿔보세요.</div></div>';return;}
-  var groups={};
-  list.forEach(function(a){if(!groups[a.date])groups[a.date]=[];groups[a.date].push(a);});
-  var sortedDates=Object.keys(groups).sort().reverse();
-  var html='';
-  sortedDates.forEach(function(date){
-    var dd=new Date(date+'T00:00:00+09:00');
-    var today=new Date(); today.setHours(0,0,0,0);
-    var diff=Math.round((today-dd)/86400000);
-    var lbl=diff===0?'오늘':diff===1?'어제':diff<=7?diff+'일 전':dd.toLocaleDateString('ko-KR',{year:'numeric',month:'long',day:'numeric'});
-    html+='<div class="sechead">'+lbl+' · '+groups[date].length+'건</div>';
-    html+=groups[date].map(function(a,i){return cardHTML(a,date+i);}).join('');
+  var list=D.filter(function(a){return(curDate==="all"||a.date===curDate)&&(curCat==="all"||a.cat===curCat);});
+  document.getElementById("stt").textContent=D.length;
+  document.getElementById("shi").textContent=D.filter(function(a){return a.imp==="high";}).length;
+  document.getElementById("sca").textContent=[...new Set(D.map(function(a){return a.cat;}))].length;
+  document.getElementById("stxt").textContent=D.length+"건 · 매일 오전 6시 자동 업데이트";
+  var el=document.getElementById("alist");
+  if(!list.length){el.innerHTML="<div class='empty'><div class='etit'>해당 기사 없음</div><div class='edsc'>날짜나 카테고리를 바꿔보세요.</div></div>";return;}
+  var g={};list.forEach(function(a){if(!g[a.date])g[a.date]=[];g[a.date].push(a);});
+  var h="";
+  Object.keys(g).sort().reverse().forEach(function(d){
+    var dd=new Date(d+"T00:00:00+09:00"),t=new Date();t.setHours(0,0,0,0);
+    var df=Math.round((t-dd)/86400000);
+    var lb=df===0?"오늘":df===1?"어제":df+"일 전";
+    h+="<div class='sec'>"+lb+" · "+g[d].length+"건</div>";
+    h+=g[d].map(function(a,i){return card(a,d+i);}).join("");
   });
-  el.innerHTML=html;
+  el.innerHTML=h;
 }
-
-buildTabs(); render();
+tabs();render();
 </script>
 </body>
 </html>
