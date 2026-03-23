@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#080d18">
+<title>제약·의료 데일리 브리핑</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#080d18;--bg2:#0f1623;--bg3:#161e2e;--bg4:#1c2639;
+  --border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.13);
+  --text:#f0f4ff;--text2:#8b93a8;--text3:#505a6e;
+  --accent:#00c896;--adim:rgba(0,200,150,0.12);
+  --red:#ff5c6a;--amber:#f5a623;
+  --fn:'Noto Sans KR',sans-serif;--fs:'DM Serif Display',serif;
+  --r:14px;--rs:8px;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{background:var(--bg);color:var(--text);font-family:var(--fn);font-size:15px;line-height:1.6;overflow-x:hidden}
+.hdr{position:sticky;top:0;z-index:100;background:rgba(8,13,24,0.95);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:.5px solid var(--border);padding:13px 18px 11px}
+.hdr-in{max-width:680px;margin:0 auto}
+.hrow{display:flex;align-items:center;justify-content:space-between;margin-bottom:5px}
+.brand{display:flex;align-items:center;gap:9px}
+.bico{width:33px;height:33px;background:linear-gradient(135deg,#00c896,#009e78);border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.bico svg{width:17px;height:17px}
+.bname{font-size:15px;font-weight:600;letter-spacing:-.3px}
+.bname em{font-style:normal;color:var(--accent)}
+.updated{font-size:11px;color:var(--text3);background:var(--bg3);border:.5px solid var(--border2);border-radius:20px;padding:4px 10px;white-space:nowrap}
+.srow{display:flex;align-items:center;gap:6px;margin-top:5px}
+.dot{width:5px;height:5px;border-radius:50%;background:var(--accent);box-shadow:0 0 5px var(--accent);flex-shrink:0}
+.stxt{font-size:11.5px;color:var(--text3)}
+.tabbar{background:var(--bg2);border-bottom:.5px solid var(--border);overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none}
+.tabbar::-webkit-scrollbar{display:none}
+.tabs{display:flex;padding:0 18px;width:max-content}
+.tab{font-size:12.5px;font-family:var(--fn);font-weight:500;padding:10px 14px;border-bottom:2px solid transparent;color:var(--text3);cursor:pointer;white-space:nowrap;transition:.15s;user-select:none}
+.tab.on{color:var(--accent);border-bottom-color:var(--accent)}
+.cwrap{padding:10px 0;border-bottom:.5px solid var(--border);overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none}
+.cwrap::-webkit-scrollbar{display:none}
+.cats{display:flex;gap:6px;padding:0 18px;width:max-content}
+.cat{font-size:12px;font-family:var(--fn);font-weight:500;padding:4px 12px;border-radius:20px;border:.5px solid var(--border2);background:transparent;color:var(--text2);cursor:pointer;white-space:nowrap;transition:.15s;user-select:none}
+.cat:active{transform:scale(.95)}
+.cat.on{background:var(--adim);border-color:var(--accent);color:var(--accent)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:12px 18px;max-width:680px;margin:0 auto}
+.sc{background:var(--bg2);border:.5px solid var(--border);border-radius:var(--rs);padding:9px 12px;text-align:center}
+.sn{font-size:20px;font-weight:700;font-family:var(--fs);color:var(--accent);line-height:1.1;margin-bottom:2px}
+.sl{font-size:10px;color:var(--text3);letter-spacing:.3px}
+.awrap{padding:0 18px 80px;max-width:680px;margin:0 auto}
+.sechead{font-size:10px;font-weight:600;letter-spacing:1.1px;color:var(--text3);text-transform:uppercase;padding:14px 0 7px}
+.card{background:var(--bg2);border:.5px solid var(--border);border-radius:var(--r);margin-bottom:8px;overflow:hidden}
+.card.hi{border-left:3px solid var(--accent)}
+.card.md{border-left:3px solid var(--bg4)}
+.card-hd{padding:13px 15px 11px;cursor:pointer;-webkit-user-select:none;user-select:none}
+.card-hd:active{background:var(--bg3)}
+.ctop{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:7px;align-items:center}
+.badge{font-size:10px;font-weight:600;padding:2px 8px;border-radius:10px;display:inline-flex;align-items:center}
+.badge.dermatology{background:rgba(255,122,101,.14);color:#ff9a89}
+.badge.clinical{background:rgba(245,166,35,.14);color:#f5c35a}
+.badge.approval{background:rgba(74,158,255,.14);color:#6db3ff}
+.badge.policy{background:rgba(155,127,255,.14);color:#b89fff}
+.badge.pharma{background:rgba(0,200,150,.14);color:#00c896}
+.badge.probiotics{background:rgba(0,200,150,.08);color:#4cd9b0;border:.5px solid rgba(0,200,150,.2)}
+.badge.pediatrics{background:rgba(255,92,106,.12);color:#ff8a96}
+.badge.chronic{background:rgba(245,166,35,.12);color:#e8a020}
+.badge.rifaximin{background:rgba(74,158,255,.1);color:#7ab8ff;border:.5px solid rgba(74,158,255,.2)}
+.badge.general{background:rgba(139,147,168,.12);color:#8b93a8}
+.badge.new-tag{background:var(--adim);color:var(--accent)}
+.ctitle{font-size:14px;font-weight:500;line-height:1.5;color:var(--text)}
+.cmeta{display:flex;align-items:center;gap:7px;margin-top:7px;flex-wrap:wrap}
+.csrc{font-size:11px;color:var(--text3)}
+.cdate{font-size:11px;color:var(--text3)}
+.cbody{display:none;border-top:.5px solid var(--border)}
+.card.open .cbody{display:block}
+.csummary{font-size:13px;color:var(--text2);line-height:1.75;padding:12px 15px 10px}
+.cfooter{padding:0 15px 12px}
+.clink{display:inline-flex;align-items:center;gap:5px;font-size:12px;color:var(--accent);text-decoration:none;background:var(--adim);padding:6px 13px;border-radius:20px;border:.5px solid rgba(0,200,150,.25)}
+.clink:active{opacity:.7}
+.clink svg{width:11px;height:11px;flex-shrink:0}
+.ctoggle{display:flex;align-items:center;justify-content:center;padding:7px;cursor:pointer;border-top:.5px solid var(--border)}
+.ctoggle span{font-size:11px;color:var(--text3);user-select:none}
+.carr{display:inline-block;margin-left:3px;transition:transform .18s}
+.card.open .carr{transform:rotate(180deg)}
+.cmsg{text-align:center;padding:50px 20px}
+.ctit2{font-family:var(--fs);font-size:20px;margin-bottom:7px;color:var(--text)}
+.cdesc{font-size:13px;color:var(--text3);line-height:1.8}
+@media(min-width:480px){
+  .hdr{padding-left:24px;padding-right:24px}
+  .tabs{padding:0 24px}
+  .cats{padding:0 24px}
+  .awrap,.stats{padding-left:24px;padding-right:24px}
+}
+</style>
+</head>
+<body>
+<header class="hdr">
+  <div class="hdr-in">
+    <div class="hrow">
+      <div class="brand">
+        <div class="bico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 22h16a2 2 0 002-2V4a2 2 0 00-2-2H8a2 2 0 00-2 2v2"/>
+            <path d="M4 22a2 2 0 010-4h2v4"/>
+            <path d="M9 9h8M9 13h8M9 17h4"/>
+          </svg>
+        </div>
+        <div><div class="bname">제약·의료 <em>데일리</em></div></div>
+      </div>
+      <span class="updated">⚡ 2026.03.23 업데이트</span>
+    </div>
+    <div class="srow">
+      <div class="dot"></div>
+      <span class="stxt">20건 · 매일 오전 6시 자동 업데이트</span>
+    </div>
+  </div>
+</header>
+
+<div class="tabbar"><div class="tabs" id="tabs"></div></div>
+<div class="cwrap">
+  <div class="cats">
+    <button class="cat on" onclick="fCat('all',this)">전체</button>
+    <button class="cat" onclick="fCat('dermatology',this)">탈모·피부과</button>
+    <button class="cat" onclick="fCat('chronic',this)">만성질환</button>
+    <button class="cat" onclick="fCat('probiotics',this)">프로바이오틱스</button>
+    <button class="cat" onclick="fCat('rifaximin',this)">Rifaximin</button>
+    <button class="cat" onclick="fCat('pediatrics',this)">소아과</button>
+    <button class="cat" onclick="fCat('pharma',this)">제약사 동향</button>
+    <button class="cat" onclick="fCat('clinical',this)">임상시험</button>
+    <button class="cat" onclick="fCat('approval',this)">신약 승인</button>
+    <button class="cat" onclick="fCat('policy',this)">정책·규제</button>
+  </div>
+</div>
+<div class="stats">
+  <div class="sc"><div class="sn" id="st">0</div><div class="sl">전체 기사</div></div>
+  <div class="sc"><div class="sn" id="sh">0</div><div class="sl">주요 기사</div></div>
+  <div class="sc"><div class="sn" id="ss">0</div><div class="sl">카테고리</div></div>
+</div>
+<div class="awrap"><div id="alist"></div></div>
+
+<script>
+const CATS_LBL={dermatology:'탈모·피부과',clinical:'임상시험',approval:'신약 승인',policy:'정책·규제',pharma:'제약사 동향',probiotics:'프로바이오틱스',pediatrics:'소아과',chronic:'만성질환',rifaximin:'Rifaximin',general:'일반'};
+
+const ARTICLES=[
+  {id:1,cat:'dermatology',imp:'high',date:'2026-02-25',
+   title:'2030년 23조 탈모 시장 쟁탈전…종근당·올릭스·JW중외 임상 속도전',
+   summary:'탈모치료제 시장이 2030년 23조원 규모로 성장할 전망 속에 국내 제약사들의 경쟁이 치열하다. 종근당 CKD-843은 임상 3상, 올릭스 OLX104C는 호주 임상 1b/2a상 첫 환자 투여를 완료했다. 이재명 대통령의 건보 급여 확대 검토 지시로 정책 기대감도 높아지고 있다.',
+   source:'더퍼블릭',url:'https://www.thepublic.kr/news/articleView.html?idxno=295427'},
+  {id:2,cat:'dermatology',imp:'high',date:'2026-02-13',
+   title:'JW중외제약, 바르는 탈모 신약 \'JW0061\' 식약처 임상 1상 승인…모낭 생성 효과 기존 대비 7.2배',
+   summary:'JW중외제약이 탈모치료제 JW0061의 임상 1상을 식약처로부터 승인받았다. Wnt 신호전달경로를 활성화해 모낭 재생을 유도하며 기존 치료제 대비 모낭 증식 효과가 7.2배다. 미국 등 10개국 특허 출원도 완료했다.',
+   source:'이데일리',url:'https://www.edaily.co.kr/News/Read?newsId=03831046645350192&mediaCodeNo=257'},
+  {id:3,cat:'dermatology',imp:'medium',date:'2026-01-13',
+   title:'이탈리아 바르는 탈모 신약 \'클라스코테론\' 임상 3상 통과…모발 성장 최대 539% 증가',
+   summary:'코스모 파마슈티컬스의 클라스코테론 5% 용액이 1,400명 대상 임상 3상에서 위약 대비 최대 539% 모발 성장을 기록했다. 두피에 바르는 제형으로 전신 부작용을 최소화했으며 국내 판권은 현대약품이 보유하고 있다.',
+   source:'더메디컬',url:'https://www.themedical.kr/news/articleView.html?idxno=2939'},
+
+  {id:4,cat:'chronic',imp:'high',date:'2026-03-22',
+   title:'질병관리청 \'2025 만성질환 현황\' 발간…고혈압·당뇨 진료비만 연 90조원',
+   summary:'만성질환으로 인한 사망이 전체 사망의 78.8%, 진료비 90조원으로 전체의 80.3%를 차지한다. 고혈압 유병자 중 목표혈압 도달 환자는 절반 수준이며, 당뇨병 유병률은 9.4%로 유지되고 있다.',
+   source:'질병관리청',url:'https://www.kdca.go.kr/bbs/kdca/42/309453/artclView.do'},
+  {id:5,cat:'chronic',imp:'high',date:'2025-04-22',
+   title:'일라이 릴리, 경구용 GLP-1 \'올포글리프론\' 당뇨 3상 성공…2026년 허가 신청 예정',
+   summary:'일라이 릴리의 경구용 저분자 GLP-1 수용체 작용제 올포글리프론이 제2형 당뇨병 대상 임상 3상을 성공적으로 완료했다. 음식·물 섭취 제한 없이 복용 가능한 최초의 경구용 GLP-1으로 2026년 내 전세계 허가 신청 계획이다.',
+   source:'메디포뉴스',url:'https://medifonews.com/news/article.html?no=202059'},
+  {id:6,cat:'chronic',imp:'medium',date:'2026-01-15',
+   title:'JW중외제약 고지혈증 복합제 \'리바로젯\', 2025년 처방액 1170억…4년 만에 1000억 돌파',
+   summary:'JW중외제약의 피타바스타틴·에제티미브 복합 고지혈증 치료제 리바로젯이 2025년 처방액 1,170억원을 기록했다. 임상에서 LDL-C를 최대 61%까지 낮추는 효과가 확인됐다.',
+   source:'데일리팜',url:'https://www.dailypharm.com/user/news/334760'},
+  {id:7,cat:'chronic',imp:'medium',date:'2025-01-10',
+   title:'대웅제약 SGLT-2 당뇨 신약 \'엔블로\', 출시 3개월 만에 4대 종합병원 모두 입성',
+   summary:'대웅제약의 이나보글리플로진 당뇨 신약 엔블로가 서울대·삼성서울·서울아산·세브란스 4대 종합병원 약사위원회를 출시 3개월 만에 통과했다. 기존 SGLT-2 억제제의 30분의 1 용량인 0.3mg으로 동등 이상의 효과를 낸다.',
+   source:'메디게이트뉴스',url:'https://m.medigatenews.com/news/3857360185'},
+
+  {id:8,cat:'probiotics',imp:'high',date:'2025-11-26',
+   title:'낙산균, 위산·항생제에도 살아남는 \'대장 특화 프로바이오틱스\'…혈당 관리·장벽 강화 효과 주목',
+   summary:'낙산균(클로스트리디움 부티리쿰)이 아포(포자) 덕분에 위산·담즙산에도 장까지 살아남아 낙산을 생성한다. 분당서울대병원 연구에서 고지방 식이로 망가진 장내미생물 불균형 정상화 효과가 확인됐으며, GLP-1 분비 촉진을 통한 혈당 강하 효과도 주목받고 있다.',
+   source:'하이닥',url:'https://news.hidoc.co.kr/news/articleView.html?idxno=41179'},
+  {id:9,cat:'probiotics',imp:'high',date:'2024-11-11',
+   title:'낙산균, 차세대 프로바이오틱스로 부상…단쇄지방산·GLP-1 분비로 면역·대사 조절',
+   summary:'낙산균이 생성하는 단쇄지방산(낙산·아세트산)이 혈관을 통해 전신 면역과 대사조절에 관여하며, GLP-1·PYY 분비를 늘려 식사량 감소와 지방 연소 유도 효과도 보인다. 일반 유산균보다 생존력이 강하다.',
+   source:'약사공론',url:'https://www.kpanews.co.kr/article/show.asp?category=B&idx=252995'},
+  {id:10,cat:'probiotics',imp:'medium',date:'2023-02-10',
+   title:'효모균·낙산균·당화균 복합 프로바이오틱스…유해균 배출 및 유익균 증식 시너지 주목',
+   summary:'효모균(사카로마이세스)은 유해균을 장 밖으로 배출하는 역할을 하며, 낙산균·당화균(아스퍼질러스 오리제)과 함께 사용할 경우 장내 환경 개선 효과가 더욱 높아진다.',
+   source:'코메디닷컴',url:'https://kormedi.com/1566145/'},
+
+  {id:11,cat:'rifaximin',imp:'high',date:'2026-03-18',
+   title:'2026년 Rifaximin 최신 리뷰: IBS·SIBO·간성뇌증 치료 효과 재확인…장 선택적 항생제의 정밀의학 역할',
+   summary:'2026년 Pharmacological Reports 리뷰에서 rifaximin이 PXR 수용체 활성화를 통한 항염증 효과와 장 상피 장벽 강화 효과가 확인됐다. 전신 흡수율 0.4% 미만으로 마이크로바이옴을 보존하면서 IBS-D, SIBO, 간성뇌증 치료에 효과적이다.',
+   source:'MyMedicineAdvisor',url:'https://mymedicineadvisor.com/health/rifaximin-uses-dosage-side-effects/'},
+  {id:12,cat:'rifaximin',imp:'medium',date:'2018-12-14',
+   title:'Rifaximin, 마이크로바이옴 구성 변화 없이 과민성장증후군 증상 개선…프로바이오틱스 병용 효과 상승',
+   summary:'rifaximin은 장내 미생물총 구성에 영향을 주지 않으면서 IBS 증상을 개선하는 독특한 기전을 가진다. 간경화 환자에서 미생물총의 탄수화물·지질 대사를 유익하게 변화시키며, 프로바이오틱스 병용 시 효과가 더 높아진다.',
+   source:'메디칼업저버',url:'https://www.monews.co.kr/news/articleView.html?idxno=123098'},
+
+  {id:13,cat:'pediatrics',imp:'high',date:'2026-03-13',
+   title:'복지부, 지방 소아·응급·분만 지키기 위해 거점병원-동네의원 협력 네트워크 구축…연 500억 투입',
+   summary:'보건복지부가 지방 소아과·응급의학과·산과 폐과 증가 문제 해결을 위해 거점병원과 동네의원을 연결하는 협력 네트워크 정책을 발표했다. 거점병원 전문의를 동네의원에 파견하고 원격 진료를 연계하며 연간 500억원 예산으로 지방 14개 광역시도에 적용할 계획이다.',
+   source:'보건복지부',url:'https://dazabi.com/insurance_magazine/article.php?id=9545'},
+  {id:14,cat:'pediatrics',imp:'high',date:'2025-09-04',
+   title:'소아청소년과 전공의 충원율 17%…필수의료 최저, 58개 지자체는 소아과 한 곳도 없어',
+   summary:'대한소아청소년과학회에 따르면 2025년 소아청소년과 전공의 충원율이 17.4%로 필수의료 중 최저를 기록했다. 지방 58개 지자체에는 소아과 의원이 단 한 곳도 없으며, 학회는 어린이·청소년 건강기본법 제정과 수가 현실화를 촉구하고 있다.',
+   source:'메디칼타임즈',url:'https://www.medicaltimes.com/Mobile/News/NewsView.html?ID=1165087'},
+  {id:15,cat:'pediatrics',imp:'medium',date:'2026-03-03',
+   title:'정부, 소아과·응급의학과 등 필수의료 인력 확보에 대규모 예산 투입 방침 발표',
+   summary:'2026년 3월 정부는 의료개혁의 일환으로 소아과·응급의학과 등 필수의료 분야 인력 확보를 위해 대규모 예산을 투입하겠다는 방침을 밝혔다.',
+   source:'오늘의클릭',url:'https://www.cliktoday.com/2026/03/2026-03-03-today-news.html'},
+
+  {id:16,cat:'pharma',imp:'high',date:'2025-12-14',
+   title:'에이비엘바이오, 사노피·GSK·일라이릴리와 기술이전 3건…누적 계약 규모 9조4000억원',
+   summary:'에이비엘바이오가 사노피, GSK, 일라이 릴리와의 기술이전 계약 3건 합산 누적 규모 약 9조4,000억원을 달성했다. 이중항체 플랫폼 그랩바디 기술이 글로벌 인정을 받았다.',
+   source:'메디파나뉴스',url:'https://www.medipana.com/news/articleView.html?idxno=403717'},
+  {id:17,cat:'pharma',imp:'medium',date:'2026-02-13',
+   title:'광동제약, 노안 치료 신약 \'유베지\' 美 FDA 품목 허가 획득…국내 독점 판권 보유',
+   summary:'광동제약이 노안 치료 신약 유베지의 미국 FDA 품목 허가 소식을 전했다. 광동제약은 해당 신약의 국내 독점 판권을 보유하고 있다.',
+   source:'이데일리',url:'https://www.edaily.co.kr/News/Read?newsId=03831046645350192&mediaCodeNo=257'},
+
+  {id:18,cat:'clinical',imp:'high',date:'2026-02-20',
+   title:'종근당, 남성형 탈모 신약 CKD-843 임상 3상 식약처 승인…3개월 1회 주사제',
+   summary:'종근당이 두타스테리드를 3개월 1회 주사제로 개발한 CKD-843의 임상 3상을 식약처로부터 승인받았다. 남성 탈모 환자 273명을 대상으로 36개월간 유효성과 안전성을 평가한다.',
+   source:'메디칼타임즈',url:'https://www.medicaltimes.com/Mobile/News/NewsView.html?ID=1159875'},
+  {id:19,cat:'clinical',imp:'medium',date:'2026-02-25',
+   title:'올릭스 RNAi 탈모치료제 OLX104C, 호주 임상 1b/2a상 첫 환자 투여 완료',
+   summary:'올릭스가 안드로겐 수용체(AR) RNAi 억제 탈모치료제 OLX104C의 호주 임상 1b/2a상에서 첫 환자 투여를 완료했다. 월 1회 국소 투여 방식으로 남녀 모두 적용 가능하다.',
+   source:'더퍼블릭',url:'https://www.thepublic.kr/news/articleView.html?idxno=295427'},
+
+  {id:20,cat:'approval',imp:'high',date:'2026-01-02',
+   title:'식약처, 2026년 바이오의약품 허가 심사 기간 240일로 단축…세계 최단 수준 추진',
+   summary:'식품의약품안전처가 바이오의약품 허가 심사 기간을 기존 420일에서 240일로 단축하는 목표를 발표했다. 동시·병렬 심사 도입과 GMP 실사 기간 단축 등을 통해 기업의 신속한 시장 진입을 지원한다.',
+   source:'헤럴드경제',url:'https://biz.heraldcorp.com/article/10647350'},
+];
+
+let curCat='all', curDate='all';
+
+function tog(id){ const el=document.getElementById('c'+id); if(el) el.classList.toggle('open'); }
+
+function cardHTML(a){
+  const cl=CATS_LBL[a.cat]||'일반';
+  const newTag=a.imp==='high'?'<span class="badge new-tag">★ 주요</span>':'';
+  const d=new Date(a.date+'T00:00:00+09:00');
+  const ds=d.toLocaleDateString('ko-KR',{year:'numeric',month:'long',day:'numeric'});
+  return `<div class="card ${a.imp==='high'?'hi':'md'}" id="c${a.id}">
+    <div class="card-hd" onclick="tog(${a.id})">
+      <div class="ctop"><span class="badge ${a.cat}">${cl}</span>${newTag}</div>
+      <div class="ctitle">${a.title}</div>
+      <div class="cmeta"><span class="csrc">${a.source}</span><span style="color:var(--bg4)">·</span><span class="cdate">${ds}</span></div>
+    </div>
+    <div class="cbody">
+      <div class="csummary">${a.summary}</div>
+      <div class="cfooter">
+        <a class="clink" href="${a.url}" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          원문 기사 보기 (${a.source})
+        </a>
+      </div>
+    </div>
+    <div class="ctoggle" onclick="tog(${a.id})"><span>요약 · 원문 링크 <span class="carr">∨</span></span></div>
+  </div>`;
+}
+
+function buildTabs(){
+  const dates=[...new Set(ARTICLES.map(a=>a.date))].sort().reverse();
+  const tabs=document.getElementById('tabs');
+  let html=`<button class="tab ${curDate==='all'?'on':''}" onclick="selDate('all',this)">전체 <span style="font-size:10px;opacity:.6">${ARTICLES.length}</span></button>`;
+  dates.forEach(d=>{
+    const cnt=ARTICLES.filter(a=>a.date===d).length;
+    const dd=new Date(d+'T00:00:00+09:00');
+    const today=new Date(); today.setHours(0,0,0,0);
+    const diff=Math.round((today-dd)/86400000);
+    const lbl=diff===0?'오늘':diff===1?'어제':diff<=7?diff+'일 전':dd.toLocaleDateString('ko-KR',{month:'short',day:'numeric'});
+    html+=`<button class="tab ${curDate===d?'on':''}" onclick="selDate('${d}',this)">${lbl} <span style="font-size:10px;opacity:.6">${cnt}</span></button>`;
+  });
+  tabs.innerHTML=html;
+}
+
+function selDate(d,btn){ curDate=d; document.querySelectorAll('.tab').forEach(b=>b.classList.remove('on')); btn.classList.add('on'); render(); }
+function fCat(cat,btn){ curCat=cat; document.querySelectorAll('.cat').forEach(b=>b.classList.remove('on')); btn.classList.add('on'); render(); }
+
+function render(){
+  let list=ARTICLES;
+  if(curDate!=='all') list=list.filter(a=>a.date===curDate);
+  if(curCat!=='all')  list=list.filter(a=>a.cat===curCat);
+  document.getElementById('st').textContent=ARTICLES.length;
+  document.getElementById('sh').textContent=ARTICLES.filter(a=>a.imp==='high').length;
+  document.getElementById('ss').textContent=[...new Set(ARTICLES.map(a=>a.cat))].length;
+  const el=document.getElementById('alist');
+  if(!list.length){ el.innerHTML=`<div class="cmsg"><div class="ctit2">해당 조건의 기사 없음</div><div class="cdesc">날짜나 카테고리를 바꿔보세요.</div></div>`; return; }
+  const groups={};
+  list.forEach(a=>{ (groups[a.date]=groups[a.date]||[]).push(a); });
+  const sortedDates=Object.keys(groups).sort().reverse();
+  let html='';
+  sortedDates.forEach(date=>{
+    const dd=new Date(date+'T00:00:00+09:00');
+    const today=new Date(); today.setHours(0,0,0,0);
+    const diff=Math.round((today-dd)/86400000);
+    const lbl=diff===0?'오늘':diff===1?'어제':diff<=7?diff+'일 전':dd.toLocaleDateString('ko-KR',{year:'numeric',month:'long',day:'numeric'});
+    html+=`<div class="sechead">${lbl} · ${groups[date].length}건</div>`;
+    html+=groups[date].map(cardHTML).join('');
+  });
+  el.innerHTML=html;
+}
+
+buildTabs(); render();
+</script>
+</body>
+</html>
